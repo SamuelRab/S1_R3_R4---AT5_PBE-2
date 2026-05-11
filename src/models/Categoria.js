@@ -48,4 +48,4 @@ export class Categoria {
     static editar(dados, id) {
         return new Categoria(dados.nome, dados.descricao, id);
     }
-}
+};
