@@ -43,17 +43,17 @@ collection:
         meta:
           id: req_2024ed370c33480daf4939729d1cee6f
           created: 1778160434033
-          modified: 1778167733571
+          modified: 1778757989265
           isPrivate: false
           description: ""
           sortKey: -1778160438086
         method: POST
         body:
           mimeType: application/json
-          text: >-
+          text: |-
             {
-              "nome": "Eletrodomésticos",
-              "descricao": "Aparelhos elétricos para facilitar tarefas domésticas"
+              "nome": "Armazenamento",
+              "descricao": "SSDs, HDs externos e pen drives"
             }
         headers:
           - name: Content-Type
@@ -102,12 +102,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:8080/categorias/1
+      - url: http://localhost:8080/categorias/3
         name: New Request
         meta:
           id: req_6af37bbcf0b9410bb872321a2aff6f7f
           created: 1778160436617
-          modified: 1778161348620
+          modified: 1778757827727
           isPrivate: false
           description: ""
           sortKey: -1778160437886
@@ -184,7 +184,7 @@ collection:
         meta:
           id: req_ff47bd746b7749428f6a4171c4bd3152
           created: 1778162473378
-          modified: 1778170439440
+          modified: 1778761903954
           isPrivate: false
           description: ""
           sortKey: -1778162478161
@@ -193,32 +193,32 @@ collection:
           mimeType: multipart/form-data
           params:
             - name: idCategoria
-              value: "2"
+              value: "8"
               description: ""
               disabled: false
             - name: nome
-              value: Monitor
+              value: SSD WD Green
               description: ""
               disabled: false
             - name: descricao
-              value: é um periférico de saída essencial que exibe visualmente os dados
-                processados, funcionando como a interface principal entre o
-                usuário e o sistema operacional.
+              value: SSD SATA III de 480GB com leitura de até 545 MB/s. Solução acessível para
+                upgrade de notebooks e desktops, com baixo consumo de energia e
+                alta confiabilidade
               description: ""
               disabled: false
             - name: preco
-              value: "384.99"
+              value: "249.90"
               description: ""
               disabled: false
             - name: quantidadeEstoque
-              value: "19"
+              value: "45"
               description: ""
               disabled: false
             - name: imagem
               value: ""
               description: ""
               disabled: false
-              fileName: C:\Users\49090085866\Downloads\monitor.png
+              fileName: C:\Users\49090085866\Downloads\SSD WD Green.jpg
               type: file
         headers:
           - name: Content-Type
@@ -289,12 +289,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:8080/produtos/2
+      - url: http://localhost:8080/produtos/5
         name: New Request
         meta:
           id: req_15542751ec4444a7b493586e82f77836
           created: 1778162475678
-          modified: 1778167975644
+          modified: 1778757806589
           isPrivate: false
           description: ""
           sortKey: -1778162477961
@@ -325,7 +325,7 @@ collection:
         meta:
           id: req_9d0b84fbba804c869218c2183cc5b50d
           created: 1778169906126
-          modified: 1778171742893
+          modified: 1778761958223
           isPrivate: false
           description: ""
           sortKey: -1778169917904
@@ -336,14 +336,14 @@ collection:
             {
               "itens": [
                 {
-                  "idProduto": 3,
+                  "idProduto": 6,
                   "quantidade": 2,
-                  "valorUnitario": 299.99
+                  "valorUnitario": 3499.99
                 },
                 {
-                  "idProduto": 5,
+                  "idProduto": 7,
                   "quantidade": 2,
-                  "valorUnitario": 384.99
+                  "valorUnitario": 33199.99
                 }
               ]
             }
@@ -362,12 +362,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:8080/pedidos/1/itens
+      - url: http://localhost:8080/pedidos/4/itens
         name: New Request
         meta:
           id: req_4d9e8c47267d4b49b67a1a338adbeb7f
           created: 1778169907631
-          modified: 1778170865388
+          modified: 1778762024099
           isPrivate: false
           description: ""
           sortKey: -1778169917804
@@ -376,9 +376,9 @@ collection:
           mimeType: application/json
           text: |-
             {
-              "idProduto": 4,
+              "idProduto": 8,
               "quantidade": 2,
-              "valorUnitario": 599.99
+              "valorUnitario": 4299.99
             }
         headers:
           - name: Content-Type
@@ -418,12 +418,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:8080/pedidos/1
+      - url: http://localhost:8080/pedidos/3
         name: New Request
         meta:
           id: req_5ff63d52f0aa49a1b073a0cfe97047f6
           created: 1778169910437
-          modified: 1778170986903
+          modified: 1778757773472
           isPrivate: false
           description: ""
           sortKey: -1778169917604
