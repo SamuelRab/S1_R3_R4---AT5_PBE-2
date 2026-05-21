@@ -5,7 +5,8 @@ const produtoController = {
     criar: async (req, res) => {
         try {
             const { idCategoria, nome, descricao, preco, quantidadeEstoque } = req.body;
-            const imagem = req.file?.path || null;
+
+            const imagem = req.file ? req.file.path.replace(/\\/g, '/').split('uploads/')[1] : null;
 
             if (!idCategoria || !nome || !preco) {
                 return res.status(400).json({ sucesso: false, mensagem: 'Preencha todos os campos obrigatórios: idCategoria, nome e preco' });
@@ -51,7 +52,7 @@ const produtoController = {
         try {
             const id = Number(req.params.id);
             const { idCategoria, nome, descricao, preco, quantidadeEstoque } = req.body;
-            const imagem = req.file?.path || null;
+            const imagem = req.file ? req.file.path.replace(/\\/g, '/').split('uploads/')[1] : null;
 
             if (!id || id <= 0) {
                 return res.status(400).json({ sucesso: false, mensagem: 'ID inválido' });

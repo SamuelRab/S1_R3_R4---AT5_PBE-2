@@ -10,7 +10,7 @@ const pedidoRepository = {
 
             for (const item of itensPedido) {
                 const [rows] = await conn.execute(
-                    'SELECT quantidadeEstoque FROM produtos WHERE id = ?', [item.idProduto]
+                    'SELECT Estoque FROM produtos WHERE id = ?', [item.idProduto]
                 );
                 if (rows.length === 0) throw new Error(`Produto ID ${item.idProduto} não encontrado`);
                 if (rows[0].quantidadeEstoque < item.quantidade) throw new Error(`Estoque insuficiente para o produto ID ${item.idProduto}`);
