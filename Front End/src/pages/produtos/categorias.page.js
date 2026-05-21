@@ -24,7 +24,7 @@ export async function categoriasPage() {
     col.className = 'col-md-4 mb-4';
 
     col.innerHTML = `
-      <div class="card h-100">
+      <div class="card h-100 card-categoria">
         <div class="card-body">
           <h5 class="card-title">${categoria.name}</h5>
           <p class="card-text">${categoria.description || 'Descrição não disponível'}</p>

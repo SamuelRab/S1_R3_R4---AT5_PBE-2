@@ -35,7 +35,7 @@ nav.innerHTML = `
         </ul>
 
         <div class="d-flex align-items-center ms-3">
-          <select class="btn btn-primary btn-sm" id="selectCategoria" style="width: 180px; background-color: #0d6efd; border-color: #0d6efd;">
+          <select class="btn btn-categoria btn-sm" id="selectCategoria" style="width: 180px;">
             <option value="">Todas as Categorias</option>
           </select>
         </div>

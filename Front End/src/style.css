@@ -1,14 +1,15 @@
 :root {
-  --primary-blue: #007bff; /* Azul primária - confiança e segurança */
-  --light-gray: #f8f9fa; /* Cinza claro - base neutra */
-  --success-green: #28a745; /* Verde - ações positivas */
+  --primary-blue: #2563eb; /* Azul principal do design system */
+  --primary-soft: #60a5fa;
+  --light-gray: #f1f5f9; /* Fundo leve e suave */
+  --success-green: #22c55e; /* Verde para feedback positivo */
   --bg-page: var(--light-gray);
   --surface: #ffffff;
-  --surface-strong: var(--light-gray);
-  --text-primary: #212529;
-  --text-muted: #6c757d;
-  --accent: var(--primary-blue);
-  --danger: #dc3545;
+  --surface-strong: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-muted: #64748b;
+  --accent: #1d4ed8;
+  --danger: #ef4444;
 }
 
 * {
@@ -46,19 +47,19 @@ header {
 }
 
 .navbar-nav .nav-link {
-  color: var(--text-muted) !important;
+  color: var(--text-muted);
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
 }
 
 .navbar-nav .nav-link.active {
-  color: var(--primary-blue) !important;
+  color: var(--accent) !important;
   font-weight: bold;
 }
 
 .navbar-nav .nav-link:hover {
-  color: var(--primary-blue) !important;
-  background-color: rgba(0, 123, 255, 0.1);
+  color: var(--accent) !important;
+  background-color: rgba(37, 99, 235, 0.12);
 }
 
 .form-control {
@@ -74,31 +75,32 @@ header {
 }
 
 .form-control:focus {
-  border-color: var(--primary-blue);
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 0.2rem rgba(96, 165, 250, 0.25);
   background-color: var(--surface);
 }
 
 #btnCarrinho {
-  border-radius: 0.75rem;
-  padding: 0.35rem 0.55rem;
-  font-size: 0.85rem;
+  border-radius: 0.85rem;
+  padding: 0.45rem 0.7rem;
+  font-size: 0.9rem;
   min-width: auto;
   min-height: auto;
   width: auto;
   max-width: 120px;
-  line-height: 1rem;
-  color: white;
-  border: 1px solid var(--primary-blue);
-  background-color: var(--primary-blue);
+  line-height: 1.1rem;
+  color: #ffffff;
+  border: 1px solid var(--accent);
+  background-color: var(--accent);
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.12);
 }
 
 #btnCarrinho:hover {
-  background-color: #0056b3;
-  border-color: #004494;
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
 }
 
 #btnCarrinho .bi-cart3 {
@@ -120,7 +122,7 @@ header {
 }
 
 main.container {
-  max-width: 1080px;
+  max-width: 1120px;
 }
 
 .page-title {
@@ -132,19 +134,36 @@ main.container {
 #lista-produtos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
+  gap: 3rem;
 }
 
 .card {
   border: 1px solid rgba(148, 163, 184, 0.16);
-  border-radius: 1rem;
+  border-radius: 1.5rem;
   background-color: var(--surface);
   overflow: hidden;
-  transition: transform 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 14px 38px rgba(15, 23, 42, 0.08);
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-8px);
+  box-shadow: 0 22px 48px rgba(15, 23, 42, 0.12);
+}
+
+.card.card-categoria {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.card.card-categoria:hover {
+  background-color: var(--accent);
+  transform: translateY(-8px);
+  box-shadow: 0 22px 48px rgba(15, 23, 42, 0.12);
+}
+
+.card.card-categoria:hover .card-title,
+.card.card-categoria:hover .card-text {
+  color: #ffffff;
 }
 
 .card img {
@@ -154,44 +173,64 @@ main.container {
 }
 
 .card-body {
-  padding: 1rem;
+  padding: 1.25rem;
 }
 
 .card-title {
   margin-bottom: 0.75rem;
   font-size: 1.05rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
 }
 
 .card-text {
   margin-bottom: 1rem;
   color: var(--accent);
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 .btn-outline-primary {
   width: 100%;
-  border-radius: 0.75rem;
-  border: 1px solid rgba(148, 163, 184, 0.35);
-  color: var(--text-primary);
+  border-radius: 0.85rem;
+  border: 1px solid rgba(96, 165, 250, 0.5);
+  color: var(--accent);
   background-color: transparent;
-  padding: 0.75rem 1rem;
+  padding: 0.8rem 1rem;
 }
 
 .btn-outline-primary:hover,
 .btn-outline-primary:focus {
-  background-color: rgba(148, 163, 184, 0.12);
-  color: var(--text-primary);
+  background-color: rgba(96, 165, 250, 0.12);
+  color: var(--accent);
+}
+
+.btn-categoria {
+  width: 100%;
+  border-radius: 0.85rem;
+  border: 1px solid #cbd5e1;
+  color: var(--accent);
+  background-color: #e2e8f0;
+  padding: 0.8rem 1rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-categoria:hover,
+.btn-categoria:focus,
+.btn-categoria:active {
+  background-color: #e2e8f0;
+  border-color: #cbd5e1;
+  color: var(--accent);
+  box-shadow: none;
 }
 
 .btn-outline-danger {
-  border-radius: 0.75rem;
+  border-radius: 0.85rem;
 }
 
 .btn-outline-danger:hover,
 .btn-outline-danger:focus {
-  background-color: rgba(239, 68, 68, 0.1);
+  background-color: rgba(239, 68, 68, 0.12);
 }
 
 .spinner-border {
@@ -204,10 +243,10 @@ main.container {
 }
 
 .empty-state {
-  padding: 1.5rem;
-  border-radius: 1rem;
+  padding: 1.8rem;
+  border-radius: 1.5rem;
   background: var(--surface);
-  border: 1px dashed rgba(148, 163, 184, 0.28);
+  border: 1px dashed rgba(148, 163, 184, 0.24);
   color: var(--text-muted);
   text-align: center;
 }
@@ -218,26 +257,55 @@ main.container {
   color: var(--text-primary);
 }
 
+#resumo-carrinho {
+  padding: 1.25rem 1.5rem;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background-color: var(--surface);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+}
+
+#resumo-carrinho p {
+  margin-bottom: 0.35rem;
+  color: var(--text-primary);
+}
+
+#resumo-carrinho span {
+  color: var(--accent);
+}
+
+#btnCheckout {
+  border-radius: 0.95rem;
+  padding: 0.85rem 1.4rem;
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+#btnCheckout:disabled {
+  opacity: 0.65;
+}
+
 .pagination {
   justify-content: center;
   margin-top: 1.5rem;
 }
 
 .page-link {
-  border-radius: 0.75rem;
-  border-color: rgba(148, 163, 184, 0.2);
+  border-radius: 0.85rem;
+  border-color: rgba(148, 163, 184, 0.16);
   color: var(--text-primary);
   background-color: var(--surface);
 }
 
 .page-link:hover {
-  background-color: rgba(148, 163, 184, 0.15);
+  background-color: rgba(96, 165, 250, 0.12);
   color: var(--text-primary);
 }
 
 .page-item.active .page-link {
-  background-color: rgba(148, 163, 184, 0.3);
-  border-color: rgba(148, 163, 184, 0.3);
+  background-color: rgba(96, 165, 250, 0.18);
+  border-color: rgba(96, 165, 250, 0.18);
 }
 
 .page-item.disabled .page-link {

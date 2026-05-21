@@ -169,3 +169,10 @@ style.css → Estilização global do projeto
 index.html → Estrutura base da aplicação web
 
 Além disso, Akila também participou da organização da arquitetura do projeto e da integração das funcionalidades à versão final da aplicação.
+
+##Versão Final
+
+-Após resolver os problemas que estavam ocorrendo no front-end, Miguel adicionou com sucesso a funcionalidade de soma automática do carrinho, juntamente com um botão de checkout.
+
+
+-Akila realizou ajustes no design do site, aplicando uma aparência mais clean e organizada, além de corrigir as categorias para que fossem exibidas corretamente, sem duplicações.
