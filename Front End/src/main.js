@@ -8,7 +8,6 @@ produtosPage();
 const btnProdutos = document.querySelector('#btnProdutos');
 const btnCarrinho = document.querySelector('#btnCarrinho');
 
-// Controla a navegação entre páginas da aplicação
 btnProdutos.addEventListener('click', () => {
   ativarMenu(btnProdutos);
   produtosPage();

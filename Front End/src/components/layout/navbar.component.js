@@ -22,7 +22,6 @@ nav.innerHTML = `
       <div class="collapse navbar-collapse justify-content-center" id="menu">
 
         <ul class="navbar-nav mb-2 mb-lg-0">
-
           <li class="nav-item">
             <button 
               class="nav-link active fw-bold text-primary" 
@@ -31,7 +30,6 @@ nav.innerHTML = `
               Produtos
             </button>
           </li>
-
         </ul>
 
         <div class="d-flex align-items-center ms-3">
