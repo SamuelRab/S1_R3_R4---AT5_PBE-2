@@ -47,12 +47,16 @@ export async function produtosCarrinhoPage() {
   function calcularTotal(itens) {
     return itens.reduce((total, produto) => {
       const valor = Number(String(produto.price).replace(',', '.')) || 0;
-      return total + valor;
+      const quantidade = Number(produto.quantity) || 1;
+      return total + valor * quantidade;
     }, 0);
   }
 
   function atualizarResumo() {
-    const quantidade = carrinhoFiltrados.length;
+    const quantidade = carrinhoFiltrados.reduce(
+      (total, produto) => total + (Number(produto.quantity) || 1),
+      0
+    );
     const total = calcularTotal(carrinhoFiltrados);
 
     quantidadeElement.innerText = quantidade;
@@ -70,7 +74,7 @@ export async function produtosCarrinhoPage() {
     }
 
     const total = calcularTotal(carrinhoFiltrados);
-    window.alert(`Checkout realizado com ${quantidade} produto(s). Total: R$ ${formatarDinheiro(total)}`);
+    window.alert(`Compra realizada com ${quantidade} produto(s). Total da compra: R$${formatarDinheiro(total)}`);
   });
 
   carrinho = listarCarrinho();

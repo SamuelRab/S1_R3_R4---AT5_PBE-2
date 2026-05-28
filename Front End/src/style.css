@@ -190,6 +190,31 @@ main.container {
   font-size: 1rem;
 }
 
+.quantidade-controle {
+  justify-content: flex-start;
+}
+
+.quantidade-display {
+  min-width: 2rem;
+  text-align: center;
+}
+
+.quantidade-controle button {
+  min-width: 2.4rem;
+  min-height: 2.4rem;
+  padding: 0;
+}
+
+.btn-outline-secondary {
+  color: var(--text-primary);
+  border-color: rgba(148, 163, 184, 0.35);
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus {
+  background-color: rgba(148, 163, 184, 0.15);
+}
+
 .btn-outline-primary {
   width: 100%;
   border-radius: 0.85rem;
