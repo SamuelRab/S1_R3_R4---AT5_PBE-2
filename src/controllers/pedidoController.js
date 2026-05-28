@@ -1,6 +1,7 @@
 import { Pedido } from '../models/Pedido.js';
 import { ItensPedido } from '../models/ItensPedido.js';
 import pedidoRepository from '../repositories/pedidoRepository.js';
+import produtoRepository from '../repositories/produtoRepository.js';
 import { statusPedido } from '../enum/statusPedido.js';
 
 const pedidoController = {
@@ -10,6 +11,17 @@ const pedidoController = {
 
             if (!itens || !Array.isArray(itens) || itens.length === 0) {
                 return res.status(400).json({ sucesso: false, mensagem: 'Informe ao menos um item no pedido' });
+            }
+
+            // Verificar estoque de cada produto
+            for (const item of itens) {
+                const produto = await produtoRepository.selecionarPorId(item.idProduto);
+                if (!produto) {
+                    return res.status(400).json({ sucesso: false, mensagem: `Produto com id ${item.idProduto} não encontrado` });
+                }
+                if (item.quantidade > produto.quantidadeEstoque) {
+                    return res.status(400).json({ sucesso: false, mensagem: `Estoque insuficiente para o produto ${produto.nome}` });
+                }
             }
 
             const itensPedido = itens.map(item =>
@@ -68,7 +80,16 @@ const pedidoController = {
     adicionarItem: async (req, res) => {
         try {
             const { pedidoId } = req.params;
-            const item = ItensPedido.criar(req.body);
+            const itemData = req.body;
+            // Verificar estoque do produto
+            const produto = await produtoRepository.selecionarPorId(itemData.idProduto);
+            if (!produto) {
+                return res.status(400).json({ sucesso: false, mensagem: `Produto com id ${itemData.idProduto} não encontrado` });
+            }
+            if (itemData.quantidade > produto.quantidadeEstoque) {
+                return res.status(400).json({ sucesso: false, mensagem: `Estoque insuficiente para o produto ${produto.nome}` });
+            }
+            const item = ItensPedido.criar(itemData);
             const result = await pedidoRepository.adicionarItem(pedidoId, item);
             res.status(201).json({ sucesso: true, mensagem: 'Item adicionado com sucesso', dados: result });
         } catch (error) {

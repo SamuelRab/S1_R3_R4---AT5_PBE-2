@@ -1,5 +1,7 @@
 import { Produto } from '../models/Produto.js';
 import produtoRepository from '../repositories/produtoRepository.js';
+import fs from 'fs';
+import path from 'path';
 
 const produtoController = {
     criar: async (req, res) => {
@@ -56,6 +58,20 @@ const produtoController = {
 
             if (!id || id <= 0) {
                 return res.status(400).json({ sucesso: false, mensagem: 'ID inválido' });
+            }
+
+            // Buscar produto atual para pegar a imagem antiga
+            const produtoAtual = await produtoRepository.selecionarPorId(id);
+            let imagemAntiga = produtoAtual ? produtoAtual.imagem : null;
+
+            // Se veio uma nova imagem e existe uma imagem antiga, apaga a antiga
+            if (imagem && imagemAntiga) {
+                const caminhoImagemAntiga = path.join('uploads', imagemAntiga);
+                fs.unlink(caminhoImagemAntiga, (err) => {
+                    if (err) {
+                        console.error('Erro ao apagar imagem antiga:', err);
+                    }
+                });
             }
 
             const produto = Produto.editar({ idCategoria, nome, descricao, preco, quantidadeEstoque }, imagem, id);

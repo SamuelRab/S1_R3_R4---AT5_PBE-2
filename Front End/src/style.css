@@ -90,7 +90,7 @@ header {
   max-width: 120px;
   line-height: 1.1rem;
   color: #ffffff;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--surface);
   background-color: var(--accent);
   display: inline-flex;
   align-items: center;
