@@ -28,7 +28,7 @@ const produtoRepository = {
     },
 
     deletar: async (id) => {
-        const sql = `DELETE FROM produtos WHERE idProduto = ?`;
+        const sql = `DELETE FROM produtos WHERE id = ?`;
         const [rows] = await connection.execute(sql, [id]);
         return rows;
     }
